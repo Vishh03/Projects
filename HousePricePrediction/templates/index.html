@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}" />
+</head>
+<body>
+    <h1>House Price Prediction</h1>
+    <form id="prediction-form" method="post">
+        <div class="label-input">
+            <label for="INT_SQFT">INT_SQFT:</label>
+            <input type="number" id="INT_SQFT" name="INT_SQFT">
+        </div>
+        <div class="label-input">
+            <label for="DIST_MAINROAD">DIST_MAINROAD:</label>
+            <input type="number" id="DIST_MAINROAD" name="DIST_MAINROAD">
+        </div>
+        <div class="label-input">
+            <label for="N_BEDROOM">N_BEDROOM:</label>
+            <input type="number" id="N_BEDROOM" name="N_BEDROOM">
+        </div>
+        <div class="label-input">
+            <label for="N_BATHROOM">N_BATHROOM:</label>
+            <input type="number" id="N_BATHROOM" name="N_BATHROOM">
+        </div>
+        <div class="label-input">
+            <label for="N_ROOM">N_ROOM:</label>
+            <input type="number" id="N_ROOM" name="N_ROOM">
+        </div>
+        <div class="label-input">
+            <label for="QS_ROOMS">QS_ROOMS:</label>
+            <input type="number" id="QS_ROOMS" name="QS_ROOMS">
+        </div>
+        <div class="label-input">
+            <label for="QS_BATHROOM">QS_BATHROOM:</label>
+            <input type="number" id="QS_BATHROOM" name="QS_BATHROOM">
+        </div>
+        <div class="label-input">
+            <label for="QS_BEDROOM">QS_BEDROOM:</label>
+            <input type="number" id="QS_BEDROOM" name="QS_BEDROOM">
+        </div>
+        <div class="label-input">
+            <label for="QS_OVERALL">QS_OVERALL:</label>
+            <input type="number" id="QS_OVERALL" name="QS_OVERALL">
+        </div>
+        <div class="label-input">
+            <label for="REG_FEE">REG_FEE:</label>
+            <input type="number" id="REG_FEE" name="REG_FEE">
+        </div>
+        <div class="label-input">
+            <label for="COMMIS">COMMIS:</label>
+            <input type="number" id="COMMIS" name="COMMIS">
+        </div>
+        <div class="label-input">
+            <label for="PARK_FACIL">PARK_FACIL (0-No, 1-Yes):</label>
+            <input type="number" id="PARK_FACIL" name="PARK_FACIL">
+        </div>
+        <div class="form-submit-btn"><input type="submit" value="Predict"></div>
+    </form>
+    <form action="/predict_area" method="get" class="container__form">
+        <button type="submit" class="container__button">Check House Area</button>
+    </form>
+    {% if show_result %}
+        <h2>Predicted House Price: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>

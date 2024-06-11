@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Area</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}" />
+</head>
+<body>
+    <h1>Predict Area</h1>
+    <form action="/predict_area" method="POST" id="prediction-form">
+        <div class="label-input">
+            <label for="start_price">Enter starting price range:</label>
+            <input type="text" id="start_price" name="start_price" required><br><br>
+        </div>
+        <div class="label-input">
+            <label for="end_price">Enter ending price range:</label>
+            <input type="text" id="end_price" name="end_price" required><br><br>
+        </div>
+        <div class="form-submit-btn"><input type="submit" value="Submit"></div>
+    </form>
+    {% if show_result %}
+        <h2>Predicted House Price: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
